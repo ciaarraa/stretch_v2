@@ -6,6 +6,9 @@ ruby "3.1.2"
 #so we can use the dynamodb
 gem 'dynamoid'
 
+#gem for mongodb
+gem "mongoid"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 
