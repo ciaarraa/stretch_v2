@@ -1,7 +1,20 @@
 require_relative "boot"
 
-#remove this since we're not using active record
-#require "rails/all"
+#use this instead of rails/all since we're not using active record
+require "rails"
+
+
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "sprockets/railtie"
+require "rails/test_unit/railtie"
+require "action_text/engine"
+require "active_job/railtie"
+require "active_job/railtie"
+
+#requires active record :( 
+#require "active_storage/engine"
+
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
