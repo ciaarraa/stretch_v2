@@ -84,6 +84,7 @@ GEM
     bootsnap (1.13.0)
       msgpack (~> 1.2)
     bson (4.15.0)
+    bson_ext (1.5.1)
     builder (3.2.4)
     capybara (3.37.1)
       addressable
@@ -242,6 +243,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  bson_ext
   capybara
   debug
   dynamoid

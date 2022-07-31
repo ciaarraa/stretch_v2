@@ -7,7 +7,8 @@ ruby "3.1.2"
 gem 'dynamoid'
 
 #gem for mongodb
-gem "mongoid"
+gem 'mongoid'
+gem 'bson_ext'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
