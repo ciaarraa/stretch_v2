@@ -1,4 +1,4 @@
-class Listing < ApplicationRecord
+class Listing
     include include Mongoid::Document
     
     table name: listing, key: id, capacity_mode: on_demand
