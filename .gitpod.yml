@@ -17,6 +17,6 @@ ports:
     port: 3000
     onOpen: open-browser
   - name: Mongodb server
-    description: The database server
-    port: 3000
+    description: stretch_v2_development
+    port: 27017
     onOpen: open-browser
