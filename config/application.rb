@@ -14,7 +14,7 @@ require "action_mailer/railtie"
 # require "action_text/engine"
 require "action_view/railtie"
 require "action_cable/engine"
-require "rails/test_unit/railtie"
+#require "rails/test_unit/railtie" using RSpec
 
 
 
@@ -29,6 +29,12 @@ module StretchV2
 
     #necessary for devise 
     config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+    #no specs for vires or helpers
+    config.generators do |g|
+      g.view_specs false
+      g.helper_specs false
+    end
 
     # Configuration for the application, engines, and railties goes here.
     #
