@@ -27,6 +27,9 @@ module StretchV2
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    #necessary for devise 
+    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
