@@ -17,6 +17,12 @@ FileUtils.chdir APP_ROOT do
   system! "gem install bundler --conservative"
   system("bundle check") || system!("bundle install")
 
+  #installing mongosh - mongo db shell
+  system! "wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -"
+  system! "echo \"deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse\" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list"
+  system! "sudo apt-get update"
+  system! "sudo apt-get install -y mongodb-mongosh"
+  
   # puts "\n== Copying sample files =="
   # unless File.exist?("config/database.yml")
   #   FileUtils.cp "config/database.yml.sample", "config/database.yml"
