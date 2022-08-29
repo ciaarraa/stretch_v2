@@ -1,6 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe Item do 
+RSpec.describe Item do
+    describe "validations" do
+        it "state" do
+            item = Item.create(title: "Test", body: "Meg the stallion")
+            expect(item).to validate_inclusion_of(:state).in_array(%i[draft available reserved])
+        end
+    end
+
     describe "state" do
         it "has default draft" do
             item = Item.new(title: "Test", body: "item body")
