@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
 
   # GET /items or /items.json
   def index
-    binding.pry
     @items = Item.where(user_id: current_user.id)
   end
 
@@ -23,7 +22,6 @@ class ItemsController < ApplicationController
   # POST /items or /items.json
   def create
     @item = Item.new(item_params)
-    binding.pry
     @item.users = current_user
     respond_to do |format|
       if @item.save
