@@ -2,10 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Item do
     describe "validations" do
-        it "state" do
-            item = Item.create(title: "Test", body: "Meg the stallion")
-            expect(item).to validate_inclusion_of(:state).in_array(%i[draft available reserved])
-        end
+        it { is_expected.to validate_inclusion_of(:state).to_allow(%i[draft available reserved]) }
     end
 
     describe "state" do
@@ -45,19 +42,19 @@ RSpec.describe Item do
 
         context "when the item is a avaiable" do
             it "can be reserved" do
-                item = Item.new(title: "Test", body: "item body")
+                item = Item.new(title: "Test", body: "item body", state: :available)
                 item.perform(action: :reserve)
                 expect(item[:state]).to be(:reserved)
             end
 
             it "can be edited " do
-                item = Item.new(title: "Test", body: "item body")
+                item = Item.new(title: "Test", body: "item body", state: :available)
                 item.perform(action: :edit)
                 expect(item[:state]).to be(:draft)
             end
 
             it "can be deleted" do
-                item = Item.new(title: "Test", body: "item body")
+                item = Item.new(title: "Test", body: "item body", state: :available)
                 item.perform(action: :delete)
                 expect(item[:state]).to be(:withdrawn)
             end

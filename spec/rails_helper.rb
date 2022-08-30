@@ -26,6 +26,12 @@ RSpec.configure do |config|
   # Remove this line to enable support for ActiveRecord
   config.use_active_record = false
 
+  #not sure why I have to put the include inside the configure block. If I put
+  # it outside then things start to fail becasuse the database cleaner can't find
+  #the default config file
+  require 'mongoid-rspec'
+  config.include Mongoid::Matchers, type: :model
+
   # If you enable ActiveRecord support you should unncomment these lines,
   # note if you'd prefer not to run each example within a transaction, you
   # should set use_transactional_fixtures to false.
