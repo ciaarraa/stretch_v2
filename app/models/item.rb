@@ -5,6 +5,8 @@ class Item
   field :body, type: String
   field :state, type: StringifiedSymbol, default: :draft
 
+  belongs_to :users
+
  
   TRANSITIONS = {
     draft: {publish: :available, edit: :draft, delete: :withdrawn}, 
