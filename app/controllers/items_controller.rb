@@ -3,7 +3,8 @@ class ItemsController < ApplicationController
 
   # GET /items or /items.json
   def index
-    @items = Item.where(user_id: current_user.id)
+    @items = Item.all
+    # @items = Item.where(user_id: current_user.id)
   end
 
   # GET /items/1 or /items/1.json
@@ -22,7 +23,8 @@ class ItemsController < ApplicationController
   # POST /items or /items.json
   def create
     @item = Item.new(item_params)
-    @item.users = current_user
+    binding.pry
+    current_user.items << [@item]
     respond_to do |format|
       if @item.save
         format.html { redirect_to item_url(@item), notice: "Item was successfully created." }
