@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
 
   # GET /items or /items.json
   def index
-    @items = Item.all
+    @items = Item.where(user_id: current_user.id)
     # @items = Item.where(user_id: current_user.id)
   end
 
@@ -23,7 +23,6 @@ class ItemsController < ApplicationController
   # POST /items or /items.json
   def create
     @item = Item.new(item_params)
-    binding.pry
     current_user.items << [@item]
     respond_to do |format|
       if @item.save
@@ -62,7 +61,7 @@ class ItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
-      @item = Item.find(params[:id])
+      @item = Item.find_by(user_id: current_user.id)
     end
 
     # Only allow a list of trusted parameters through.

@@ -5,7 +5,7 @@ class Item
   field :body, type: String
   field :state, type: StringifiedSymbol, default: :draft
 
-  embedded_in :user
+  belongs_to :user
  
   TRANSITIONS = {
     draft: {publish: :available, edit: :draft, delete: :withdrawn}, 
