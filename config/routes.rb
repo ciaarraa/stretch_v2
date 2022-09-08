@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "items#show"
+  #root to: "articles#index"
 
   devise_for :users
   resources :accounts
