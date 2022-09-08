@@ -67,4 +67,7 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # Add git pod url thing to allowed hosts so that I can open it in browser
+  config.hosts << "3000-ciaarraa-stretchv2-zpz3jk51pcy.ws-eu63.gitpod.io"
 end
