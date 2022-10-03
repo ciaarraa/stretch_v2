@@ -21,4 +21,9 @@ class Item
     self[:state] = TRANSITIONS[self[:state]][action] || :error
   end
 
+  def self.and_account
+    Item.all.map do |item|
+      [User.find(item.user_id).email => item ]
+    end.flatten.reduce({}, :merge)
+  end
 end

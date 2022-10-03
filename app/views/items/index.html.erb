@@ -1,16 +1,22 @@
 
-
 <h1>Items</h1>
+<h2> <%= current_user.id%> </h2>
 
-<div id="items">
-  <% @items.each do |item| %>
-    <%= render item %>
-    <p>
-      <%= link_to "Show this item", item %>
-    </p>
-  <% end %>
-</div>
+<%if @items.present? %>
+ <div id="items">
+   <% @items.each do |item| %>
+     <%= render item %>
+     <p>
+       <%= link_to "Show this item", item %>
+     </p>
+   <% end %>
+ </div>
+ <%else%>
+ <div id="no-items">
+  <p> "There are no items "</p>
+ </div>
+<%end%>
 
-<%= link_to "New item", new_item_path %>
+ <%= link_to "New item", new_item_path %>
 
-<%= button_to "logout", destroy_user_session_path, method: :delete  %>
+ <%= button_to "logout", destroy_user_session_path, method: :delete  %>

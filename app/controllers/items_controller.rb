@@ -4,11 +4,11 @@ class ItemsController < ApplicationController
   # GET /items or /items.json
   def index
     @items = Item.where(user_id: current_user.id)
-    # @items = Item.where(user_id: current_user.id)
   end
 
   # GET /items/1 or /items/1.json
   def show
+    @items = Item.where(user_id: params[:id])
   end
 
   # GET /items/new
@@ -58,6 +58,20 @@ class ItemsController < ApplicationController
     end
   end
 
+  def user_item_index
+    debugger
+    if params[:id].present? && params[:id] == current_user.id
+      @items = Item.where(user_id: params[:id])
+      # respond_to do |format|
+      #     format.html { redirect_to index }
+      #     format.json { render :show, status: :created, location: @item }
+      # end
+      render :index
+    else 
+      render :index
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
@@ -66,6 +80,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:title, :body)
+      params.require(:item).permit(:title, :body, :user_id)
     end
 end

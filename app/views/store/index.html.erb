@@ -1,0 +1,21 @@
+<%if notice %>
+ <aside id="notice"><%= notice %></aside>
+ <% end %>
+ 
+ <h1> Store Front </h1>
+
+ <ul>
+		<% @user_and_item.each do |user, item| %>
+			<li>
+					<h2>
+					<%= item.title %> 
+					</h2>
+					<p>
+							<%= sanitize(item.body)%>
+					</p>
+					<div>
+					<p> Seller: user <%= %></p>
+					</div>
+			</li>
+		<% end %>
+ </ul>
