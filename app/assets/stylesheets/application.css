@@ -23,7 +23,8 @@ html{
 
 
 h1{
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Arial, Helvetica, sans-serif;
+    color:darkgreen;
 }
 
 h2{
@@ -99,5 +100,23 @@ a {
     border-bottom-color: rgb(104 85 224 / 20%);
     margin-bottom: 10px;
     width: 100%;
-    
+}
+
+.top_nav {
+    background-color: darkgreen;
+    overflow: hidden;
+  }
+
+.top_nav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: white;
+    color: black;
 }
