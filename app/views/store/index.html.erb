@@ -5,7 +5,7 @@
  <h1> Store Front </h1>
 
  <ul>
-		<% @user_and_item.each do |user, item| %>
+		<% @user_and_item.each do |item, user_email| %>
 			<li>
 					<h2>
 					<%= item.title %> 
@@ -14,7 +14,7 @@
 							<%= sanitize(item.body)%>
 					</p>
 					<div>
-					<p> Seller: user <%= %></p>
+					<p> Seller: <%= user_email %></p>
 					</div>
 			</li>
 		<% end %>

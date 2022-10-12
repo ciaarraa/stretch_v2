@@ -21,6 +21,10 @@ html{
     width:100%;
 }
 
+body{
+    margin: 0;
+}
+
 
 h1{
     font-family: Arial, Helvetica, sans-serif;
@@ -44,7 +48,6 @@ input[type=submit] {
     transition: 0.4s;
     opacity: 0.8;
     
-
   }
 
 input[type=submit]:hover{
@@ -102,13 +105,17 @@ a {
     width: 100%;
 }
 
-.top_nav {
+.top_nav_menu_parent {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: centre;
+    padding: 14px ;
+    margin: 0;
     background-color: darkgreen;
     overflow: hidden;
   }
-
-.top_nav a {
-    float: left;
+.nav_menu_item a {
     color: white;
     text-align: center;
     padding: 14px 16px;
@@ -116,7 +123,22 @@ a {
     font-size: 17px;
 }
 
-.topnav a:hover {
-    background-color: white;
-    color: black;
+.nav_menu_button{
+    cursor: pointer;
+    border-color: white;
+    font-size: 17px;
+    background-color: darkgreen;
+    border-radius: 4px;
+    margin: 0 10px;
+    text-decoration: none;
+    padding: 10px 10px;
+    color: white;
+}
+
+
+.top_nav_menu_item{
+    order: 1;
+    width: 100%;
+    text-align: center;
+    display: none;
 }

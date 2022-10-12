@@ -11,20 +11,24 @@
   </head>
 
   <body>
+  <nav>
+    <ul class=top_nav_menu_parent>
+        <li class="nav_menu_item"> <a href="/">Home</a></li>
+        <li class="nav_menu_item"> <a href="/items">My Listings</a></li>
+        <li class="nav_menu_item"> <a href="/items">My Listings</a></li>
+        <li class="nav_menu_item"> <a href="/items">My Listings</a></li>
+        <li class="nav_menu_item"> <form method="post" action="/users/sign_out"><input type="hidden" name="_method" value="delete" autocomplete="off"><button class=nav_menu_button type="submit">logout</button></form>
+    </ul>
+  </nav>
   <header>
-    <% if notice %>
-      <p style="color: green" class="alert alert-success"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
     <h1><%=@page_title%></h1>
-    </header>
-    <div class=top_nav>
-        <a href="/">Store</a>
-        <a href="/items">My Listings</a>
-    </div>
+      <% if notice %>
+        <p style="color: green" class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+  </header>
     <%= yield %>
-    </div>
   </body></html>
 </html>

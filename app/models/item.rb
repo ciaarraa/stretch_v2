@@ -22,8 +22,9 @@ class Item
   end
 
   def self.and_account
-    Item.all.map do |item|
-      [User.find(item.user_id).email => item ]
-    end.flatten.reduce({}, :merge)
+    k = Item.all.map do |item|
+      [item => User.find(item.user_id).email]
+    end.flatten.reduce(:merge)
+    k
   end
 end
