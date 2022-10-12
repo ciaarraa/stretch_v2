@@ -142,3 +142,21 @@ a {
     text-align: center;
     display: none;
 }
+
+.store_parent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 20px
+}
+
+.store_item {
+    border: 1px solid #ccc;
+    width: 30%;
+    margin-bottom: 2%; /* (100-32*3)/2 */
+    margin-left: 1%;
+    position: relative;
+    box-shadow: 1px 1px 10px 1px grey;
+    border-radius: 25px;
+    padding: 5px;
+}

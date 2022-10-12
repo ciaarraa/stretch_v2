@@ -4,9 +4,9 @@
  
  <h1> Store Front </h1>
 
- <ul>
+ <ul class="store_parent">
 		<% @user_and_item.each do |item, user_email| %>
-			<li>
+			<div class= store_item rounded-corners parent-shadow>
 					<h2>
 					<%= item.title %> 
 					</h2>
@@ -16,6 +16,6 @@
 					<div>
 					<p> Seller: <%= user_email %></p>
 					</div>
-			</li>
+			</div>
 		<% end %>
  </ul>
