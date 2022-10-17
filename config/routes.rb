@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get 'user/new'
   get 'user/create'
   get 'store/index'
+  get 'requests/index'
 end

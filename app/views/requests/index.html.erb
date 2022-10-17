@@ -1,0 +1,20 @@
+<h1>Requested Items</h1>
+<h2> <%= current_user.id%> </h2>
+
+<%if @items.present? %>
+ <div id="items">
+   <% @items.each do |item| %>
+     <%= render item %>
+     <%= item.requested_by %>
+     <p>
+       <%= link_to "Show this item", item %>
+     </p>
+   <% end %>
+ </div>
+ <%else%>
+ <div id="no-items">
+  <p> "There are no items "</p>
+ </div>
+<%end%>
+
+ <%= link_to "New item", new_item_path %>

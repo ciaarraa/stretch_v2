@@ -6,6 +6,8 @@ class Item
   field :state, type: StringifiedSymbol, default: :draft
   field :created_by, type: Hash
   field :requested_by, type: Array
+
+  belongs_to :user
  
   TRANSITIONS = {
     draft: {publish: :available, edit: :draft, delete: :withdrawn}, 
