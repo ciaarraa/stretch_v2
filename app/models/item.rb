@@ -4,8 +4,8 @@ class Item
   field :title, type: String
   field :body, type: String
   field :state, type: StringifiedSymbol, default: :draft
-
-  belongs_to :user
+  field :created_by, type: Hash
+  field :requested_by, type: Array
  
   TRANSITIONS = {
     draft: {publish: :available, edit: :draft, delete: :withdrawn}, 

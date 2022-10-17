@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1 or /items/1.json
   def show
-    @items = Item.where(user_id: params[:id])
+    @items = Item.find(params[:id])
   end
 
   # GET /items/new
@@ -22,11 +22,12 @@ class ItemsController < ApplicationController
 
   # POST /items or /items.json
   def create
-    @item = Item.new(item_params)
+    debugger
+    @item = Item.new(item_params.merge(created_by: current_user.attributes.except("updated_at", "encrypted_password")))
     current_user.items << [@item]
     respond_to do |format|
       if @item.save
-        format.html { redirect_to item_url(@item), notice: "Item was successfully created." }
+        format.html { redirect_to item_url(@item) }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new, status: :unprocessable_entity }
